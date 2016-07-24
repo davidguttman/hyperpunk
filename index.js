@@ -7,8 +7,21 @@ exports.decorateConfig = (config) => {
   return Object.assign({}, config, {
     foregroundColor: '#28FC91',
     backgroundColor: '#0F2218',
-    borderColor: '#28FC91',
+    borderColor: 'transparent',
     cursorColor: '#40FFFF',
+    css: `
+      ${config.css || ''}
+      .tab_tab {
+        background: rgba(0,0,0,0.3);
+      }
+      .tab_active {
+        font-weight: bold;
+        background: inherit;
+      }
+      .tab_active:before {
+        border: none;
+      }
+    `
   });
 }
 
